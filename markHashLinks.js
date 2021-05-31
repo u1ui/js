@@ -5,22 +5,19 @@ var getLinks = function(){
 	if (links) return links;
 	var els = document.querySelectorAll('a[href]');
 	links = [];
-	for (var i=0,el; el=els[i++];) {
-		var matches = el.href.match(/#(.*)/);
+	for (var i=0,a; a=els[i++];) {
+		var matches = a.href.match(/#(.*)/);
 		if (!matches) continue;
 		var id = matches[1];
 		if (!id) continue;
 		var target = document.getElementById(id);
 		if (!target) continue;
-		links.push({
-			a:el,
-			target:target,
-			id:id,
-		});
+		links.push({a, target, id});
 	}
-	setTimeout(function(){ links = null; },1000);
+	setTimeout(()=> links = null, 1000);
 	return links;
 };
+
 var listen = function(e){
 	var links = getLinks(), winner, i=0, link;
 	while (link=links[i++]) {
@@ -31,7 +28,7 @@ var listen = function(e){
 	winner && markLinksActivated(winner.id);
 };
 
-c1.dom.ready.then(listen);
+document.addEventListener('DOMContentLoaded',listen);
 addEventListener('scroll',listen);
 addEventListener('resize',listen);
 
@@ -47,9 +44,5 @@ function markLinksActivated(id){
 	}
 }
 
-addEventListener('pushstate',function(e){
-	markLinksActivated(location.hash)
-});
-addEventListener('cms.navigator-navigated',function(e){ // todo: make onpopstate-polyfill
-	markLinksActivated(location.hash)
-});
+addEventListener('pushstate',e=>markLinksActivated(location.hash));
+addEventListener('cms.navigator-navigated', e=>markLinksActivated(location.hash)); // todo: make onpopstate-polyfill
