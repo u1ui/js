@@ -1,3 +1,7 @@
+// similiar:
+// https://github.com/anatoo/fnparse.js
+
+
 export function stringIterator(string) {
     let pos = {line:0, column:0, position:0};
 
