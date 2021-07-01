@@ -40,7 +40,6 @@ onElement('link[rel="stylesheet"], style', {immediate:function(el){
     //checkAllSheets()
 }});
 
-
 function checkAllSheets(){
     for (let sheet of document.styleSheets) checkSheet(sheet);
 }
@@ -60,8 +59,6 @@ function checkImportRules(rules){
         else break;
     }
 }
-
-
 
 
 /*
