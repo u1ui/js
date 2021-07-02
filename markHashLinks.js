@@ -14,7 +14,7 @@ var getLinks = function(){
 		if (!target) continue;
 		links.push({a, target, id});
 	}
-	setTimeout(()=> links = null, 1000);
+	setTimeout(()=> links = null, 3000);
 	return links;
 };
 
@@ -45,4 +45,4 @@ function markLinksActivated(id){
 }
 
 addEventListener('pushstate',e=>markLinksActivated(location.hash));
-addEventListener('cms.navigator-navigated', e=>markLinksActivated(location.hash)); // todo: make onpopstate-polyfill
+//addEventListener('cms.navigator-navigated', e=>markLinksActivated(location.hash)); // todo: make onpopstate-polyfill
