@@ -1,4 +1,4 @@
-import {onElement} from '../onElement/mod.js';
+import {onElement} from '../../onElement/mod.js';
 
 const sheets = new WeakSet();
 const elements = new WeakSet();
@@ -24,16 +24,16 @@ sometimes the load-event comes before mutationobserver? not really
 - first big .css?
 has to listen on document, window triggers on document-load
 */
-document.addEventListener('load',function(e){
-    if (!elements.has(e.target)) console.warn('load was first!!!');
-    foundElement(e.target, 'load')
-    // console.log('triggered load', e.target, e);
-    // if (e.target.tagName !== 'LINK') return;
-    // if (e.target.rel !== 'stylesheet') return;
-    // foundElement(e.target)
+document.addEventListener('load',({target})=>{
+    if (!elements.has(target)) console.warn('load was first!!!');
+    foundElement(target, 'load')
+    // console.log('triggered load', target, e);
+    // if (target.tagName !== 'LINK') return;
+    // if (target.rel !== 'stylesheet') return;
+    // foundElement(target)
 },true);
 
-onElement('link[rel="stylesheet"], style', {immediate:function(el){
+onElement('link[rel="stylesheet"], style', {immediate: el=>{
     // checks all styleSheets and importRules, todo store urls global and check all if used url found
     // console.log(el.sheet)
     foundElement(el, 'onElement');
