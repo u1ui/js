@@ -1,5 +1,6 @@
 // similiar:
 // https://github.com/anatoo/fnparse.js
+// https://github.com/francisrstokes/arcsecond
 
 
 export function stringIterator(string) {
