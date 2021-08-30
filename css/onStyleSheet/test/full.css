@@ -1,0 +1,8 @@
+/*COPY OF https://cdn.jsdelivr.net/gh/u1ui/base.css/full.css */
+
+@import "https://cdn.jsdelivr.net/gh/u1ui/base.css/../norm.css/norm.css";
+@import "https://cdn.jsdelivr.net/gh/u1ui/base.css/../norm.css/beta.css";
+@import "https://cdn.jsdelivr.net/gh/u1ui/base.css/base.css";
+@import "https://cdn.jsdelivr.net/gh/u1ui/base.css/beta.css";
+@import "https://cdn.jsdelivr.net/gh/u1ui/base.css/nomotion.css" prefers-reduced-motion;
+@import "https://cdn.jsdelivr.net/gh/u1ui/base.css/print.css" print;
