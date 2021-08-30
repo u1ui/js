@@ -12,6 +12,8 @@ async function foundElement(el, byDebug){
     checkSheet(el.sheet);
 }
 
+
+
 /*
 document.styleSheets has the right order of sheets, but imported sheets are not included
 */
@@ -26,10 +28,10 @@ has to listen on document, window triggers on document-load
 */
 document.addEventListener('load',({target})=>{
     if (!elements.has(target)) console.warn('load was first!!!');
-    foundElement(target, 'load')
     // console.log('triggered load', target, e);
-    // if (target.tagName !== 'LINK') return;
-    // if (target.rel !== 'stylesheet') return;
+    if (target.tagName !== 'STYLE' && target.tagName !== 'LINK') return;
+    if (target.tagName === 'LINK' && target.rel !== 'stylesheet') return;
+    foundElement(target, 'load')
     // foundElement(target)
 },true);
 
@@ -47,9 +49,14 @@ function checkSheet(sheet){
     if (sheets.has(sheet)) console.error('sheet already added!?');
     sheets.add(sheet);
     try { // firefox fails sometimes if we access sheet.cssRules immediate after found it, really?
+        // console.log('test', sheet, sheet.hasOwnProperty('cssRules'), sheet.cssRules)
         checkImportRules(sheet.cssRules);
     } catch (e) {
         console.log('fail',sheet, e) //
+        /*
+        DOMException: Failed to read the 'cssRules' property from 'CSSStyleSheet': Cannot access rules 
+        Exception occurs for css included via import-at-rule in a cors included css file
+        */
     }
 }
 function checkImportRules(rules){
@@ -96,6 +103,7 @@ function medialistHas(mediaList, wanted){
 function elSheetReady(el){
     return new Promise(function(resolve, reject){
         if (el.sheet) resolve(el.sheet);
+
         el.addEventListener('load',()=>{
             if (el.sheet) resolve(el.sheet);
             else reject('no sheet!');
