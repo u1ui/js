@@ -15,14 +15,21 @@ addEventListener('scroll',onScroll);
 
 
 
+
 let lastHeight = null;
 function check(){
+    /*
     let height = window.innerHeight;
     if (lastHeight !== null) {
         height = Math.abs(height - lastHeight) > 60 ? height : lastHeight; // grösser oder kleiner geworden um mehr als 60 px
     }
     lastHeight = height;
     document.documentElement.style.setProperty('--u1-vh-max', height+'px');
+    */
+
+    // vh without browser-ui
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--u1-vh-min', `${vh}px`);
 };
 check();
 addEventListener('resize',check);
