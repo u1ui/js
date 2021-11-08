@@ -22,7 +22,7 @@ function check(){
     if (lastHMin !== null) {
         hMin = Math.abs(hMin - lastHMin) > 70 ? hMin : lastHMin; // grösser oder kleiner geworden um mehr als 60 px
     }
-    document.documentElement.style.setProperty('--u1-vh-min', (hMin * 0.01) +'px');
+    document.documentElement.style.setProperty('--u1-vh-min', hMin +'px');
     lastHMin = hMin;
 };
 check();
