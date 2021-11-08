@@ -6,7 +6,7 @@ const onScroll = function(){
     docEl.classList[upScroll?'add':'remove']('u1-scroll-up');
     lastY = pageYOffset;
     //const isTop = lastY === 0;
-    const isTop = lastY <= 10; // 0 is not enough on iOS
+    const isTop = lastY <= 20; // 0 is not enough on iOS
     //docEl.classList[isTop?'add':'remove']('u1-scroll-top');
     docEl.classList[isTop?'remove':'add']('u1-scroll-not-top');
 };
