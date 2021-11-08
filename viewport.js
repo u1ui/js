@@ -5,17 +5,13 @@ const onScroll = function(){
     const upScroll = lastY >= pageYOffset;
     docEl.classList[upScroll?'add':'remove']('u1-scroll-up');
     lastY = pageYOffset;
-    const isTop = lastY === 0;
-    docEl.classList[isTop?'add':'remove']('u1-scroll-top');
-    if (isTop) {
-        docEl.classList.add('js-up-scroll');
-    }
+    //const isTop = lastY === 0;
+    const isTop = lastY <= 0;
+    //docEl.classList[isTop?'add':'remove']('u1-scroll-top');
+    docEl.classList[isTop?'remove':'add']('u1-scroll-not-top');
 };
 onScroll();
 addEventListener('scroll',onScroll);
-
-
-
 
 
 
