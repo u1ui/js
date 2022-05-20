@@ -1,4 +1,7 @@
 
+
+console.warn('todo!');
+
 /* mark link, todo: loop nav elements, for now it only works with one nav */
 var links = null;
 var getLinks = function(){
