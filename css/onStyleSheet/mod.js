@@ -1,4 +1,5 @@
 import {onElement} from '../../onElement/mod.js';
+//import {SelectorObserver} from '../../SelectorObserver/SelectorObserver.js';
 
 const sheets = new WeakSet();
 const elements = new WeakSet();
