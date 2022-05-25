@@ -8,9 +8,9 @@
         <link rel=stylesheet href="./style-has-include.css" id=aLink media=screen>
         <link rel=stylesheet href="./style-no-include.css" >
 
-        <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/base.css/full.css" crossorigin>
+        <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/norm.css/norm.css" crossorigin>
+        <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/base.css/base.css">
 
-        <script="./mod.js"></script>
     </head>
 <body>
 
@@ -28,7 +28,7 @@ setTimeout(function(){
     console.assert(aLink.sheet.media.item(0) === 'screen', {errorMsg: 'sheet has the mediaList of its element'});
 
 
-    console.log('dynamic add a <link rel=stylesheet> element')
+    console.log('dynamic add <link rel=stylesheet> elements')
     placeholder.innerHTML =
         `<link rel=stylesheet href="./style-has-include.css">
          <link rel=stylesheet href="./style-no-include.css">`;

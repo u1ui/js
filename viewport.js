@@ -2,9 +2,9 @@
 const docEl = document.documentElement
 let lastY = 0;
 const onScroll = function(){
-    const upScroll = lastY >= pageYOffset;
+    const upScroll = lastY >= scrollY;
     docEl.classList[upScroll?'add':'remove']('u1-scroll-up');
-    lastY = pageYOffset;
+    lastY = scrollY;
     const isTop = lastY <= 20; // 0 is not enough on iOS
     docEl.classList[isTop?'remove':'add']('u1-scroll-not-top');
 };

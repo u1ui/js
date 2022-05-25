@@ -1,3 +1,5 @@
+// IterableWeakSet not complete: https://gist.github.com/seanlinsley/bc10378fd311d75cf6b5e80394be813d
+
 export class IterableWeakMap {
     #weakMap = new WeakMap();
     #refSet = new Set();

@@ -13,9 +13,11 @@ addEventListener('mousedown', e => {
 Copy styles to the shadow-dom
 - add functionality to a custom Element Class we can inherit?
 
-onElement('[deep-css]',el=>{
-    for (let ss of document.styleSheets) el.shadowRoot.append(ss.ownerNode.cloneNode());
-})
+new SelectorObserver({
+    on: el => {
+        for (let ss of document.styleSheets) el.shadowRoot.append(ss.ownerNode.cloneNode());
+    } ,
+}).observe('[deep-css]');
 
 */
 
