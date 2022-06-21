@@ -1,9 +1,9 @@
-# undefined
+# js
 javascript utils
 
-## Demo
+## Demos
 
-https://raw.githack.com/u1ui/js/main/tests/init.js.html  
+[init.js.html](https://raw.githack.com/u1ui/js/main/tests/init.js.html)  
 
 ## About
 
