@@ -21,6 +21,11 @@ for (let sheet of document.styleSheets) {
     if (!sheet.ownerNode) console.warn('are root-sheets without ownerNode possible?');
     foundElement(sheet.ownerNode, 'document.styleSheets');
 }
+for (let sheet of document.adoptedStyleSheets) {
+    if (sheet.ownerNode) console.warn('adoptedStyleSheets with a ownerNode possible?');
+    foundElement(sheet.ownerNode, 'document.adoptedStyleSheets');
+}
+
 /*
 sometimes the load-event comes before mutationobserver? not really
 - first big .css?

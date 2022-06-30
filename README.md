@@ -3,7 +3,7 @@ javascript utils
 
 ## Demos
 
-[init.js.html](https://raw.githack.com/u1ui/js/main/tests/init.js.html)  
+[init.js.html](http://gcdn.li/u1ui/js@main/tests/init.js.html)  
 
 ## About
 
